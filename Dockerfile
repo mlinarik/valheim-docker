@@ -1,7 +1,7 @@
 ############################################################
 # Dockerfile that contains SteamCMD
 ############################################################
-FROM debian:buster-slim
+FROM debian:11-slim
 
 ARG PUID=1000
 
