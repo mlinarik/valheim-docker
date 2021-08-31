@@ -3,7 +3,6 @@
 ############################################################
 FROM debian:buster-slim
 
-LABEL maintainer="jeffreysmlinarik@gmail.com"
 ARG PUID=1000
 
 ENV USER steam
@@ -45,17 +44,20 @@ RUN set -x \
                 wget \
         && apt-get clean autoclean \
         && apt-get autoremove -y \
-        && rm -rf /var/lib/apt/lists/*
+        && rm -rf /var/lib/apt/lists/* \
+        && mkdir app \
+        mkdir data
 
-# Switch to user
+WORKDIR app
+
+COPY config.sh .
+
+RUN chmod +x config.sh
+
+RUN ln -s /usr/games/steamcmd steamcmd
+
 USER ${USER}
 
-WORKDIR ${STEAMCMDDIR}
+#ENTRYPOINT ["sh config.sh"]
 
-VOLUME ${STEAMCMDDIR}
-
-RUN mkdir /home/steam/steamcmd/valheim
-
-COPY scripts/valheim.sh /tmp
-
-CMD cd /tmp && ./valheim.sh
+CMD "./config.sh"
