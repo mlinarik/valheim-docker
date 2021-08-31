@@ -21,7 +21,7 @@ RUN set -x \
         && apt-get update \
         && apt-get install -y --no-install-recommends --no-install-suggests \
                 lib32stdc++6 \
-                lib32gcc1 \
+                libgcc1 \
                 wget \
                 ca-certificates=20200601~deb10u2 \
                 libsdl2-2.0-0:i386 \
