@@ -23,7 +23,7 @@ RUN set -x \
                 lib32stdc++6 \
                 libgcc1 \
                 wget \
-                ca-certificates=20200601~deb10u2 \
+                # ca-certificates=20200601~deb10u2 \
                 libsdl2-2.0-0:i386 \
                 curl \
                 locales \
