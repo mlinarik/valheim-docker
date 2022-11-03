@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:kinetic-20220830
 ARG PUID=1000
 ENV USER steam
 ENV HOMEDIR "/home/${USER}"
